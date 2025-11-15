@@ -1,0 +1,14 @@
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.recent-trades-section {
+  margin-top: 2rem;
+}
+
+.recent-trades-section h2 {
+  margin-bottom: 1rem;
+}
+

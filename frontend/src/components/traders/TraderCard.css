@@ -1,0 +1,113 @@
+.trader-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.trader-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.trader-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.trader-header h3 {
+  margin: 0;
+  color: #333;
+}
+
+.verified-badge {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.trader-bio {
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.trader-stats {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.trader-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.view-profile-btn,
+.follow-btn,
+.following-btn {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.view-profile-btn {
+  background-color: #667eea;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+
+.view-profile-btn:hover {
+  background-color: #5568d3;
+}
+
+.follow-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.follow-btn:hover {
+  background-color: #45a049;
+}
+
+.following-btn {
+  background-color: #e0e0e0;
+  color: #666;
+}
+
+.following-btn:hover {
+  background-color: #d0d0d0;
+}
+

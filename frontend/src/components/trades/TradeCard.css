@@ -1,0 +1,73 @@
+.trade-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.trade-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.trade-header h3 {
+  margin: 0;
+  color: #333;
+}
+
+.trader-name {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.trade-type {
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.trade-type.buy {
+  background-color: #4caf50;
+  color: white;
+}
+
+.trade-type.sell {
+  background-color: #f44336;
+  color: white;
+}
+
+.trade-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-label {
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.detail-value {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.trade-rationale {
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
