@@ -13,6 +13,7 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string, name: string) => Promise<void>;
   logout: () => void;
+  setToken: (token: string) => void;
   isLoading: boolean;
 }
 
@@ -63,8 +64,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(null);
   };
 
+  const updateToken = (newToken: string) => {
+    localStorage.setItem('token', newToken);
+    setToken(newToken);
+    // Fetch user data with new token
+    api.get('/auth/me').then(response => {
+      setUser(response.data.user);
+    }).catch(error => {
+      console.error('Failed to fetch user after token update:', error);
+    });
+  };
+
   return (
-    <AuthContext.Provider value={{ user, token, login, register, logout, isLoading }}>
+    <AuthContext.Provider value={{ user, token, login, register, logout, setToken: updateToken, isLoading }}>
       {children}
     </AuthContext.Provider>
   );

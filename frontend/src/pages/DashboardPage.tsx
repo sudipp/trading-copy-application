@@ -20,10 +20,12 @@ const DashboardPage: React.FC = () => {
     const fetchDashboard = async () => {
       try {
         const response = await api.get('/dashboard');
+        console.log('Dashboard response:', response.data);
         setSummary(response.data.summary);
         setRecentTrades(response.data.recentTrades || []);
       } catch (error) {
         console.error('Failed to fetch dashboard:', error);
+        console.error('Error details:', error.response?.data || error.message);
       } finally {
         setLoading(false);
       }
@@ -33,17 +35,29 @@ const DashboardPage: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading dashboard...</div>;
+    return (
+      <div className="dashboard-page">
+        <div className="loading-spinner">Loading dashboard...</div>
+      </div>
+    );
   }
 
   return (
     <div className="dashboard-page">
       <h1>Dashboard</h1>
-      {summary && <PortfolioSummary summary={summary} />}
-      <div className="recent-trades-section">
-        <h2>Recent Trades from Followed Traders</h2>
-        <TradeList trades={recentTrades} />
-      </div>
+      {summary ? (
+        <>
+          <PortfolioSummary summary={summary} />
+          <div className="recent-trades-section">
+            <h2>Recent Trades from Followed Traders</h2>
+            <TradeList trades={recentTrades} />
+          </div>
+        </>
+      ) : (
+        <div className="error-message">
+          <p>Failed to load dashboard data. Please try refreshing the page.</p>
+        </div>
+      )}
     </div>
   );
 };

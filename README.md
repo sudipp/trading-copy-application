@@ -15,7 +15,7 @@ A web-based trading application that enables users to discover, follow, and copy
 
 ### Backend
 - Node.js with Express
-- PostgreSQL with Sequelize ORM
+- Supabase (PostgreSQL) with Sequelize ORM
 - JWT authentication
 - Socket.io for real-time updates
 - Jest for testing
@@ -32,7 +32,7 @@ A web-based trading application that enables users to discover, follow, and copy
 
 ### Prerequisites
 - Node.js (v16 or higher)
-- PostgreSQL (v12 or higher)
+- Supabase account (free tier available)
 - npm or yarn
 
 ### Backend Setup
@@ -52,20 +52,29 @@ npm install
 cp .env.example .env
 ```
 
-4. Update the `.env` file with your database credentials and API keys:
-```env
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=trading_copy_app
-DB_USER=postgres
-DB_PASSWORD=your_password
-JWT_SECRET=your-secret-key
-STOCK_API_KEY=your-stock-api-key
-```
+4. Set up Supabase:
+   - Go to [Supabase](https://supabase.com) and create a free account
+   - Create a new project
+   - Go to Project Settings > Database
+   - Copy the connection string (URI format)
+   - Or copy the individual connection parameters (Host, Database name, Port, User, Password)
 
-5. Create the PostgreSQL database:
-```sql
-CREATE DATABASE trading_copy_app;
+5. Update the `.env` file with your Supabase credentials and API keys:
+```env
+# Option 1: Use connection string (recommended)
+DATABASE_URL=postgresql://postgres:s5Zt5RyXEKf5Zynt@bnorlmtvbunlppbhtwek.supabase.co:5432/postgres
+
+# Option 2: Or use individual parameters
+# DB_HOST=[PROJECT-REF].supabase.co
+# DB_PORT=5432
+# DB_NAME=postgres
+# DB_USER=postgres
+# DB_PASSWORD=[YOUR-PASSWORD]
+# DB_SSL=true
+
+JWT_SECRET=your-secret-key
+STOCK_API_PROVIDER=alpha-vantage
+STOCK_API_KEY=0989G7HGAUK43MMX
 ```
 
 6. Start the backend server:
@@ -182,6 +191,8 @@ npm test
 - Backend uses `nodemon` for auto-reload during development
 - Frontend uses Vite's hot module replacement
 - Database models will auto-sync in development mode
+- Supabase provides a managed PostgreSQL database with automatic backups and SSL connections
+- For production, ensure `DB_SSL=true` or use `DATABASE_URL` with SSL enabled
 
 ## Production Build
 

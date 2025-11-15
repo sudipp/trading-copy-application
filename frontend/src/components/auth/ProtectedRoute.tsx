@@ -9,11 +9,23 @@ interface ProtectedRouteProps {
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const { user, isLoading } = useAuth();
 
+  console.log('ProtectedRoute - isLoading:', isLoading, 'user:', user);
+
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        minHeight: '100vh' 
+      }}>
+        Loading...
+      </div>
+    );
   }
 
   if (!user) {
+    console.log('ProtectedRoute - No user, redirecting to login');
     return <Navigate to="/login" replace />;
   }
 

@@ -1,6 +1,7 @@
 const { User } = require('../models');
 const { hashPassword, verifyPassword } = require('../utils/passwordUtils');
 const { generateToken } = require('../utils/jwtUtils');
+const { generateResetToken, hashToken, sendPasswordResetEmail, sendPasswordResetConfirmation } = require('../services/emailService');
 
 /**
  * Register a new user
@@ -151,11 +152,130 @@ async function logout(req, res, next) {
   }
 }
 
+/**
+ * Handle OAuth callback success
+ */
+async function oauthCallback(req, res, next) {
+  try {
+    // User is attached to req by passport
+    const user = req.user;
+    
+    // Generate JWT token
+    const token = generateToken({
+      userId: user.id,
+      email: user.email
+    });
+
+    // Redirect to frontend with token
+    const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
+    res.redirect(`${frontendUrl}/auth/callback?token=${token}`);
+  } catch (error) {
+    next(error);
+  }
+}
+
+/**
+ * Request password reset
+ */
+async function forgotPassword(req, res, next) {
+  try {
+    const { email } = req.body;
+
+    // Find user
+    const user = await User.findOne({ where: { email } });
+    
+    // Always return success to prevent email enumeration
+    if (!user) {
+      return res.json({ 
+        message: 'If an account with that email exists, a password reset link has been sent.' 
+      });
+    }
+
+    // Check if user is OAuth user
+    if (user.oauthProvider) {
+      return res.status(400).json({ 
+        message: `This account uses ${user.oauthProvider} authentication. Please use ${user.oauthProvider} to login.` 
+      });
+    }
+
+    // Generate reset token
+    const resetToken = generateResetToken();
+    const hashedToken = hashToken(resetToken);
+    
+    // Set token expiry (1 hour from now)
+    const tokenExpiry = new Date(Date.now() + 60 * 60 * 1000);
+
+    // Save hashed token to database
+    await user.update({
+      resetToken: hashedToken,
+      resetTokenExpiry: tokenExpiry
+    });
+
+    // Send email
+    await sendPasswordResetEmail(user.email, resetToken, user.name);
+
+    res.json({ 
+      message: 'If an account with that email exists, a password reset link has been sent.' 
+    });
+  } catch (error) {
+    console.error('Forgot password error:', error);
+    next(error);
+  }
+}
+
+/**
+ * Reset password with token
+ */
+async function resetPassword(req, res, next) {
+  try {
+    const { token, newPassword } = req.body;
+
+    if (!token || !newPassword) {
+      return res.status(400).json({ message: 'Token and new password are required' });
+    }
+
+    // Hash the provided token to compare with stored hash
+    const hashedToken = hashToken(token);
+
+    // Find user with valid token
+    const user = await User.findOne({
+      where: {
+        resetToken: hashedToken
+      }
+    });
+
+    if (!user || !user.resetTokenExpiry || user.resetTokenExpiry < new Date()) {
+      return res.status(400).json({ message: 'Invalid or expired reset token' });
+    }
+
+    // Hash new password
+    const hashedPassword = await hashPassword(newPassword);
+
+    // Update password and clear reset token
+    await user.update({
+      password: hashedPassword,
+      resetToken: null,
+      resetTokenExpiry: null
+    });
+
+    // Send confirmation email
+    await sendPasswordResetConfirmation(user.email, user.name);
+
+    res.json({ message: 'Password has been reset successfully' });
+  } catch (error) {
+    console.error('Reset password error:', error);
+    next(error);
+  }
+}
+
 module.exports = {
   register,
   login,
   getMe,
   updateMe,
-  logout
+  logout,
+  oauthCallback,
+  forgotPassword,
+  resetPassword
 };
 

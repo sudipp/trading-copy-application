@@ -22,6 +22,7 @@ const MainLayout: React.FC = () => {
         <div className="nav-links">
           <Link to="/dashboard">Dashboard</Link>
           <Link to="/traders">Traders</Link>
+          <Link to="/stocks">Stocks</Link>
           <NotificationCenter />
           <div className="user-menu">
             <span>{user?.name}</span>

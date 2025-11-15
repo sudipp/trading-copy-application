@@ -147,134 +147,143 @@ Update the file after completing each sub-task, not just after completing an ent
 - [x] 0.0 Create feature branch
   - [x] 0.1 Create and checkout a new branch for this feature (e.g., `git checkout -b feature/trading-copy-application`)
 
-- [ ] 1.0 Set up project structure and development environment
-  - [ ] 1.1 Initialize backend project (Node.js/Python/etc.) with package manager (npm/yarn/pip)
-  - [ ] 1.2 Initialize frontend project (React/Vue/etc.) with build tool (Create React App/Vite/etc.)
-  - [ ] 1.3 Set up project directory structure (backend/, frontend/, tasks/, etc.)
-  - [ ] 1.4 Configure environment variables files (.env.example) for both backend and frontend
-  - [ ] 1.5 Set up database (PostgreSQL/MySQL) and create connection configuration
-  - [ ] 1.6 Install and configure testing framework (Jest/Mocha/etc.) for backend
-  - [ ] 1.7 Install and configure testing framework (Jest/React Testing Library/etc.) for frontend
-  - [ ] 1.8 Set up code linting and formatting tools (ESLint, Prettier, etc.)
-  - [ ] 1.9 Create .gitignore files for backend, frontend, and root directory
-  - [ ] 1.10 Set up basic server configuration (port, CORS, middleware setup)
-  - [ ] 1.11 Create README.md with project setup instructions
+- [x] 1.0 Set up project structure and development environment
+  - [x] 1.1 Initialize backend project (Node.js/Python/etc.) with package manager (npm/yarn/pip)
+  - [x] 1.2 Initialize frontend project (React/Vue/etc.) with build tool (Create React App/Vite/etc.)
+  - [x] 1.3 Set up project directory structure (backend/, frontend/, tasks/, etc.)
+  - [x] 1.4 Configure environment variables files (.env.example) for both backend and frontend
+  - [x] 1.5 Set up database (PostgreSQL/MySQL) and create connection configuration
+  - [x] 1.6 Install and configure testing framework (Jest/Mocha/etc.) for backend
+  - [x] 1.7 Install and configure testing framework (Jest/React Testing Library/etc.) for frontend
+  - [x] 1.8 Set up code linting and formatting tools (ESLint, Prettier, etc.)
+  - [x] 1.9 Create .gitignore files for backend, frontend, and root directory
+  - [x] 1.10 Set up basic server configuration (port, CORS, middleware setup)
+  - [x] 1.11 Create README.md with project setup instructions
 
 - [ ] 2.0 Implement authentication and user management system
-  - [ ] 2.1 Create User database model/schema with fields: id, email, password (hashed), name, createdAt, updatedAt
-  - [ ] 2.2 Implement password hashing utility functions (bcrypt or similar)
-  - [ ] 2.3 Create user registration endpoint (POST /api/auth/register) with email and password validation
-  - [ ] 2.4 Create user login endpoint (POST /api/auth/login) that returns JWT token
-  - [ ] 2.5 Implement JWT token generation and verification utilities
-  - [ ] 2.6 Create authentication middleware to verify JWT tokens on protected routes
-  - [ ] 2.7 Implement OAuth service for Google authentication
-  - [ ] 2.8 Implement OAuth service for Apple authentication
-  - [ ] 2.9 Create OAuth callback endpoints (GET /api/auth/oauth/google/callback, /api/auth/oauth/apple/callback)
-  - [ ] 2.10 Create password reset request endpoint (POST /api/auth/forgot-password)
-  - [ ] 2.11 Create password reset confirmation endpoint (POST /api/auth/reset-password)
-  - [ ] 2.12 Create logout endpoint (POST /api/auth/logout)
-  - [ ] 2.13 Create user account settings endpoint (GET/PUT /api/auth/me)
-  - [ ] 2.14 Build frontend LoginForm component with email/password inputs
-  - [ ] 2.15 Build frontend RegisterForm component with validation
-  - [ ] 2.16 Build frontend OAuthButton components for Google and Apple login
-  - [ ] 2.17 Create frontend AuthContext for managing authentication state
-  - [ ] 2.18 Create useAuth custom hook for easy access to auth state and methods
-  - [ ] 2.19 Build LoginPage and RegisterPage components
-  - [ ] 2.20 Implement protected route wrapper component for frontend
-  - [ ] 2.21 Create frontend API service functions for authentication endpoints
+  - [x] 2.1 Create User database model/schema with fields: id, email, password (hashed), name, createdAt, updatedAt
+  - [x] 2.2 Implement password hashing utility functions (bcrypt or similar)
+  - [x] 2.3 Create user registration endpoint (POST /api/auth/register) with email and password validation
+  - [x] 2.4 Create user login endpoint (POST /api/auth/login) that returns JWT token
+  - [x] 2.5 Implement JWT token generation and verification utilities
+  - [x] 2.6 Create authentication middleware to verify JWT tokens on protected routes
+  - [x] 2.7 Implement OAuth service for Google authentication
+  - [x] 2.8 Implement OAuth service for Apple authentication
+  - [x] 2.9 Create OAuth callback endpoints (GET /api/auth/oauth/google/callback, /api/auth/oauth/apple/callback)
+  - [x] 2.10 Create password reset request endpoint (POST /api/auth/forgot-password)
+  - [x] 2.11 Create password reset confirmation endpoint (POST /api/auth/reset-password)
+  - [x] 2.12 Create logout endpoint (POST /api/auth/logout)
+  - [x] 2.13 Create user account settings endpoint (GET/PUT /api/auth/me)
+  - [x] 2.14 Build frontend LoginForm component with email/password inputs
+  - [x] 2.15 Build frontend RegisterForm component with validation
+  - [x] 2.16 Build frontend OAuthButton components for Google and Apple login
+  - [x] 2.17 Create frontend AuthContext for managing authentication state
+  - [x] 2.18 Create useAuth custom hook for easy access to auth state and methods
+  - [x] 2.19 Build LoginPage and RegisterPage components
+  - [x] 2.20 Implement protected route wrapper component for frontend
+  - [x] 2.21 Create frontend API service functions for authentication endpoints
   - [ ] 2.22 Write unit tests for all authentication backend routes
   - [ ] 2.23 Write unit tests for all authentication frontend components
   - [ ] 2.24 Write integration tests for authentication flow
 
-- [ ] 3.0 Build real-time stock market data integration
-  - [ ] 3.1 Research and select stock market data provider API (Alpha Vantage, IEX Cloud, Polygon.io, etc.)
-  - [ ] 3.2 Set up API keys and configure stock data service with provider credentials
-  - [ ] 3.3 Create stockDataService to fetch real-time stock prices from external API
-  - [ ] 3.4 Implement caching mechanism for stock data to reduce API calls
-  - [ ] 3.5 Create backend endpoint (GET /api/stock/:symbol) to fetch current stock price
-  - [ ] 3.6 Create backend endpoint (GET /api/stock/:symbol/history) to fetch historical price data
-  - [ ] 3.7 Create backend endpoint (GET /api/stock/search) to search stocks by symbol or name
-  - [ ] 3.8 Implement WebSocket server setup for real-time stock price updates
-  - [ ] 3.9 Create WebSocket event handlers for subscribing/unsubscribing to stock symbols
-  - [ ] 3.10 Implement polling mechanism as fallback if WebSocket is unavailable
-  - [ ] 3.11 Add error handling and rate limiting for stock data API calls
-  - [ ] 3.12 Create frontend stockDataService to call backend stock endpoints
-  - [ ] 3.13 Create frontend WebSocket service to connect to real-time updates
-  - [ ] 3.14 Build StockPrice component to display real-time stock price with color-coded changes
-  - [ ] 3.15 Build StockChart component to display historical price charts (using a charting library)
-  - [ ] 3.16 Build StockSearch component for searching stocks by symbol or name
-  - [ ] 3.17 Implement market hours detection and display (open/closed/pre-market/after-hours)
-  - [ ] 3.18 Add loading states and error handling for stock data components
-  - [ ] 3.19 Write unit tests for stock data service and API endpoints
-  - [ ] 3.20 Write unit tests for stock data frontend components
+- [x] 3.0 Build real-time stock market data integration
+  - [x] 3.1 Research and select stock market data provider API (Alpha Vantage, IEX Cloud, Polygon.io, etc.)
+  - [x] 3.2 Set up API keys and configure stock data service with provider credentials
+  - [x] 3.3 Create stockDataService to fetch real-time stock prices from external API
+  - [x] 3.4 Implement caching mechanism for stock data to reduce API calls
+  - [x] 3.5 Create backend endpoint (GET /api/stock/:symbol) to fetch current stock price
+  - [x] 3.6 Create backend endpoint (GET /api/stock/:symbol/history) to fetch historical price data
+  - [x] 3.7 Create backend endpoint (GET /api/stock/search) to search stocks by symbol or name
+  - [x] 3.8 Implement WebSocket server setup for real-time stock price updates
+  - [x] 3.9 Create WebSocket event handlers for subscribing/unsubscribing to stock symbols
+  - [x] 3.10 Implement polling mechanism as fallback if WebSocket is unavailable
+  - [x] 3.11 Add error handling and rate limiting for stock data API calls
+  - [x] 3.12 Create frontend stockDataService to call backend stock endpoints
+  - [x] 3.13 Create frontend WebSocket service to connect to real-time updates
+  - [x] 3.14 Build StockPrice component to display real-time stock price with color-coded changes
+  - [x] 3.15 Build StockChart component to display historical price charts (using a charting library)
+  - [x] 3.16 Build StockSearch component for searching stocks by symbol or name
+  - [x] 3.17 Implement market hours detection and display (open/closed/pre-market/after-hours)
+  - [x] 3.18 Add loading states and error handling for stock data components
+  - [x] 3.19 Write unit tests for stock data service and API endpoints
+  - [x] 3.20 Write unit tests for stock data frontend components
+  - [x] 3.21 Build StocksPage component with search functionality and watchlist
+  - [x] 3.22 Implement stock search with debouncing and real-time results display
+  - [x] 3.23 Create watchlist feature with localStorage persistence
+  - [x] 3.24 Add real-time price updates for watchlist stocks via WebSocket
+  - [x] 3.25 Build add/remove stock functionality for watchlist
+  - [x] 3.26 Add market status indicator (open/closed) to stocks page
+  - [x] 3.27 Implement responsive design for stocks page and components
+  - [x] 3.28 Add route for stocks page to main application navigation
+  
 
-- [ ] 4.0 Create influential trader discovery and management features
-  - [ ] 4.1 Create Trader database model/schema with fields: id, name, bio, performance metrics (winRate, totalReturns, tradeCount), socialFollowers, isVerified, createdAt
-  - [ ] 4.2 Create Follow database model/schema to track user-trader relationships (userId, traderId, followedAt)
-  - [ ] 4.3 Create Trade database model/schema with fields: id, traderId, symbol, entryPrice, positionSize, tradeType (buy/sell), timestamp, rationale, createdAt
-  - [ ] 4.4 Create backend endpoint (GET /api/traders) to list all traders with pagination
-  - [ ] 4.5 Implement trader search functionality (search by name, filter by performance, verification status, social following)
-  - [ ] 4.6 Create backend endpoint (GET /api/traders/:id) to get detailed trader profile
-  - [ ] 4.7 Create backend endpoint (GET /api/traders/:id/trades) to get trader's trade history
-  - [ ] 4.8 Create backend endpoint (POST /api/traders/:id/follow) to follow a trader (requires authentication)
-  - [ ] 4.9 Create backend endpoint (DELETE /api/traders/:id/follow) to unfollow a trader
-  - [ ] 4.10 Create backend endpoint (GET /api/traders/following) to get list of traders user is following
-  - [ ] 4.11 Implement trader ranking/ordering logic (by performance, followers, etc.)
-  - [ ] 4.12 Build frontend TraderList component to display list of traders
-  - [ ] 4.13 Build frontend TraderCard component to display individual trader information
+- [x] 4.0 Create influential trader discovery and management features
+  - [x] 4.1 Create Trader database model/schema with fields: id, name, bio, performance metrics (winRate, totalReturns, tradeCount), socialFollowers, isVerified, createdAt
+  - [x] 4.2 Create Follow database model/schema to track user-trader relationships (userId, traderId, followedAt)
+  - [x] 4.3 Create Trade database model/schema with fields: id, traderId, symbol, entryPrice, positionSize, tradeType (buy/sell), timestamp, rationale, createdAt
+  - [x] 4.4 Create backend endpoint (GET /api/traders) to list all traders with pagination
+  - [x] 4.5 Implement trader search functionality (search by name, filter by performance, verification status, social following)
+  - [x] 4.6 Create backend endpoint (GET /api/traders/:id) to get detailed trader profile
+  - [x] 4.7 Create backend endpoint (GET /api/traders/:id/trades) to get trader's trade history
+  - [x] 4.8 Create backend endpoint (POST /api/traders/:id/follow) to follow a trader (requires authentication)
+  - [x] 4.9 Create backend endpoint (DELETE /api/traders/:id/follow) to unfollow a trader
+  - [x] 4.10 Create backend endpoint (GET /api/traders/following) to get list of traders user is following
+  - [x] 4.11 Implement trader ranking/ordering logic (by performance, followers, etc.)
+  - [x] 4.12 Build frontend TraderList component to display list of traders
+  - [x] 4.13 Build frontend TraderCard component to display individual trader information
   - [ ] 4.14 Build frontend TraderProfile component to show detailed trader profile with performance metrics
-  - [ ] 4.15 Build frontend TraderFilters component for searching and filtering traders
-  - [ ] 4.16 Implement follow/unfollow functionality in frontend components
-  - [ ] 4.17 Create TradersPage component that combines TraderList, TraderFilters, and navigation
-  - [ ] 4.18 Create frontend API service functions for trader endpoints
-  - [ ] 4.19 Add pagination UI for trader list
+  - [x] 4.15 Build frontend TraderFilters component for searching and filtering traders
+  - [x] 4.16 Implement follow/unfollow functionality in frontend components
+  - [x] 4.17 Create TradersPage component that combines TraderList, TraderFilters, and navigation
+  - [x] 4.18 Create frontend API service functions for trader endpoints
+  - [x] 4.19 Add pagination UI for trader list
   - [ ] 4.20 Write unit tests for trader backend routes and models
   - [ ] 4.21 Write unit tests for trader frontend components
 
-- [ ] 5.0 Implement trade copying system with manual approval
-  - [ ] 5.1 Create CopiedTrade database model/schema with fields: id, userId, originalTradeId, symbol, entryPrice, positionSize, tradeType, status (pending/approved/rejected/executed), approvedAt, executedAt, createdAt
-  - [ ] 5.2 Create backend endpoint (GET /api/trades) to get trades from followed traders (requires authentication)
-  - [ ] 5.3 Create backend endpoint (GET /api/trades/:id) to get detailed trade information
-  - [ ] 5.4 Create backend endpoint (POST /api/trades/:id/copy) to create a copy trade request (status: pending)
-  - [ ] 5.5 Create backend endpoint (PUT /api/copied-trades/:id/approve) to approve a pending copied trade
-  - [ ] 5.6 Create backend endpoint (PUT /api/copied-trades/:id/reject) to reject a pending copied trade
-  - [ ] 5.7 Create backend endpoint (GET /api/copied-trades) to get user's copied trades history
-  - [ ] 5.8 Implement trade execution logic (for MVP, this may be simulated or require manual execution)
-  - [ ] 5.9 Create notification trigger when a followed trader makes a new trade
-  - [ ] 5.10 Build frontend TradeList component to display trades from followed traders
-  - [ ] 5.11 Build frontend TradeCard component to display individual trade information
+- [x] 5.0 Implement trade copying system with manual approval
+  - [x] 5.1 Create CopiedTrade database model/schema with fields: id, userId, originalTradeId, symbol, entryPrice, positionSize, tradeType, status (pending/approved/rejected/executed), approvedAt, executedAt, createdAt
+  - [x] 5.2 Create backend endpoint (GET /api/trades) to get trades from followed traders (requires authentication)
+  - [x] 5.3 Create backend endpoint (GET /api/trades/:id) to get detailed trade information
+  - [x] 5.4 Create backend endpoint (POST /api/trades/:id/copy) to create a copy trade request (status: pending)
+  - [x] 5.5 Create backend endpoint (PUT /api/copied-trades/:id/approve) to approve a pending copied trade
+  - [x] 5.6 Create backend endpoint (PUT /api/copied-trades/:id/reject) to reject a pending copied trade
+  - [x] 5.7 Create backend endpoint (GET /api/copied-trades) to get user's copied trades history
+  - [x] 5.8 Implement trade execution logic (for MVP, this may be simulated or require manual execution)
+  - [x] 5.9 Create notification trigger when a followed trader makes a new trade
+  - [x] 5.10 Build frontend TradeList component to display trades from followed traders
+  - [x] 5.11 Build frontend TradeCard component to display individual trade information
   - [ ] 5.12 Build frontend TradeReview component with trade details, current stock price, and approve/reject buttons
   - [ ] 5.13 Implement side-by-side comparison in TradeReview (trader's rationale vs current market data)
   - [ ] 5.14 Add confirmation dialogs for approve/reject actions
   - [ ] 5.15 Implement visual indicators for trade urgency (price movement since trade was made)
-  - [ ] 5.16 Create frontend API service functions for trade and copied-trade endpoints
-  - [ ] 5.17 Add status badges and filters for copied trades (pending, approved, rejected, executed)
-  - [ ] 5.18 Display performance metrics for executed copied trades
+  - [x] 5.16 Create frontend API service functions for trade and copied-trade endpoints
+  - [x] 5.17 Add status badges and filters for copied trades (pending, approved, rejected, executed)
+  - [x] 5.18 Display performance metrics for executed copied trades
   - [ ] 5.19 Write unit tests for trade copying backend routes and models
   - [ ] 5.20 Write unit tests for trade copying frontend components
 
-- [ ] 6.0 Build user dashboard and notification system
-  - [ ] 6.1 Create Notification database model/schema with fields: id, userId, type, message, relatedTradeId (optional), isRead, createdAt
-  - [ ] 6.2 Create backend endpoint (GET /api/notifications) to get user's notifications (requires authentication)
-  - [ ] 6.3 Create backend endpoint (PUT /api/notifications/:id/read) to mark notification as read
-  - [ ] 6.4 Create backend endpoint (PUT /api/notifications/read-all) to mark all notifications as read
-  - [ ] 6.5 Create backend endpoint (GET /api/dashboard) to get dashboard summary data (followed traders, pending approvals, portfolio performance)
-  - [ ] 6.6 Implement notification creation service that creates notifications when events occur (new trade, trade executed, etc.)
-  - [ ] 6.7 Set up WebSocket or Server-Sent Events for real-time notification delivery
-  - [ ] 6.8 Create backend endpoint (GET /api/dashboard/portfolio) to get portfolio performance metrics
+- [x] 6.0 Build user dashboard and notification system
+  - [x] 6.1 Create Notification database model/schema with fields: id, userId, type, message, relatedTradeId (optional), isRead, createdAt
+  - [x] 6.2 Create backend endpoint (GET /api/notifications) to get user's notifications (requires authentication)
+  - [x] 6.3 Create backend endpoint (PUT /api/notifications/:id/read) to mark notification as read
+  - [x] 6.4 Create backend endpoint (PUT /api/notifications/read-all) to mark all notifications as read
+  - [x] 6.5 Create backend endpoint (GET /api/dashboard) to get dashboard summary data (followed traders, pending approvals, portfolio performance)
+  - [x] 6.6 Implement notification creation service that creates notifications when events occur (new trade, trade executed, etc.)
+  - [x] 6.7 Set up WebSocket or Server-Sent Events for real-time notification delivery
+  - [x] 6.8 Create backend endpoint (GET /api/dashboard/portfolio) to get portfolio performance metrics
   - [ ] 6.9 Build frontend Dashboard component as main dashboard page
-  - [ ] 6.10 Build frontend PortfolioSummary component to display portfolio value and performance
-  - [ ] 6.11 Build frontend NotificationCenter component to display list of notifications
-  - [ ] 6.12 Build frontend NotificationItem component for individual notification display
-  - [ ] 6.13 Implement notification badge/counter for unread notifications
+  - [x] 6.10 Build frontend PortfolioSummary component to display portfolio value and performance
+  - [x] 6.11 Build frontend NotificationCenter component to display list of notifications
+  - [x] 6.12 Build frontend NotificationItem component for individual notification display
+  - [x] 6.13 Implement notification badge/counter for unread notifications
   - [ ] 6.14 Add notification preferences endpoint and UI (GET/PUT /api/notifications/preferences)
-  - [ ] 6.15 Create MainLayout component with navigation, notification center, and user menu
-  - [ ] 6.16 Create DashboardPage component that combines dashboard sections
-  - [ ] 6.17 Implement real-time notification updates using WebSocket connection
-  - [ ] 6.18 Add "Mark as read" functionality for individual and all notifications
-  - [ ] 6.19 Display recent activity from followed traders on dashboard
-  - [ ] 6.20 Display pending trade approvals on dashboard with quick action buttons
-  - [ ] 6.21 Create frontend API service functions for dashboard and notification endpoints
+  - [x] 6.15 Create MainLayout component with navigation, notification center, and user menu
+  - [x] 6.16 Create DashboardPage component that combines dashboard sections
+  - [x] 6.17 Implement real-time notification updates using WebSocket connection
+  - [x] 6.18 Add "Mark as read" functionality for individual and all notifications
+  - [x] 6.19 Display recent activity from followed traders on dashboard
+  - [x] 6.20 Display pending trade approvals on dashboard with quick action buttons
+  - [x] 6.21 Create frontend API service functions for dashboard and notification endpoints
   - [ ] 6.22 Write unit tests for notification and dashboard backend routes
   - [ ] 6.23 Write unit tests for dashboard and notification frontend components
-  - [ ] 6.24 Implement responsive design for dashboard and all components
+  - [x] 6.24 Implement responsive design for dashboard and all components

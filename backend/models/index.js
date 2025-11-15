@@ -5,6 +5,7 @@ const Trade = require('./Trade');
 const Follow = require('./Follow');
 const CopiedTrade = require('./CopiedTrade');
 const Notification = require('./Notification');
+const Watchlist = require('./Watchlist');
 
 // Define associations
 User.hasMany(Follow, { foreignKey: 'userId', as: 'follows' });
@@ -24,6 +25,9 @@ CopiedTrade.belongsTo(Trade, { foreignKey: 'originalTradeId', as: 'originalTrade
 User.hasMany(Notification, { foreignKey: 'userId', as: 'notifications' });
 Notification.belongsTo(User, { foreignKey: 'userId', as: 'user' });
 
+User.hasMany(Watchlist, { foreignKey: 'userId', as: 'watchlist' });
+Watchlist.belongsTo(User, { foreignKey: 'userId', as: 'user' });
+
 module.exports = {
   sequelize,
   User,
@@ -31,6 +35,7 @@ module.exports = {
   Trade,
   Follow,
   CopiedTrade,
-  Notification
+  Notification,
+  Watchlist
 };
 
